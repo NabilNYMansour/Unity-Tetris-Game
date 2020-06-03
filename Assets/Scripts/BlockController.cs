@@ -45,7 +45,7 @@ public class BlockController : MonoBehaviour
                 Vector2 relativePosition = transform.localPosition + child.transform.localPosition;
                 try
                 {
-                    if (grid.GridTracker[(int) relativePosition.x,(int)relativePosition.y])
+                    if (grid.GridTracker[(int)relativePosition.x, (int)relativePosition.y])
                     {
                         gameObject.transform.localPosition += Vector3.up;
                         return true;
@@ -105,7 +105,14 @@ public class BlockController : MonoBehaviour
                     child.transform.localPosition = new Vector3(originalLocation.x, originalLocation.y);
                     break;
                 case 1: // 90 degrees.
-                    child.transform.localPosition = new Vector3(-originalLocation.y, originalLocation.x);
+                    if (gameObject.name == "S shape(Clone)")
+                    {
+                        child.transform.localPosition = new Vector3(originalLocation.y, -originalLocation.x);
+                    }
+                    else
+                    {
+                        child.transform.localPosition = new Vector3(-originalLocation.y, originalLocation.x);
+                    }
                     break;
                 case 2: // 180 degrees.
                     child.transform.localPosition = new Vector3(-originalLocation.x, -originalLocation.y);
@@ -224,7 +231,7 @@ public class BlockController : MonoBehaviour
     void Update()
     {
         // Controls:
-        if (!landed)
+        if (!landed && !grid.gameStop)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {

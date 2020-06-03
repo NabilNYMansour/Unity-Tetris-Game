@@ -72,7 +72,9 @@ public class Grid_ : MonoBehaviour
         int randomInt = random.Next(0, BlockList.Length);
         Transform Block = BlockList[randomInt];
         Instantiate(Block, gameObject.transform);
-        Block.localPosition = new Vector3(5, 23);
+        System.Random randomizer = new System.Random();
+        int randomPos = randomizer.Next(3, 7);
+        Block.localPosition = new Vector3(randomPos, 23);
         Block.tag = "CurrentBlock";
     }
 
@@ -154,7 +156,7 @@ public class Grid_ : MonoBehaviour
         ScoreDisplay.GetComponent<TextMesh>().text = "Score = " + Score.ToString();
     }
 
-    bool gameStop;
+    public bool gameStop;
     bool GameOver()
     {
         for (int x = 0; x < 10; x++)
@@ -202,7 +204,12 @@ public class Grid_ : MonoBehaviour
                 SpawnBlock();
                 FindCurrentBlock();
             }
-            Accelerator += 0.000001f;
+            // Deleting the block that spawns while the game is ended:
+            if (gameStop)
+            {
+                Destroy(currentBlock.gameObject);
+            }
+            Accelerator += 0.00001f;
         }
         // For debugging purposes:
         if (Input.GetKeyDown(KeyCode.C)) // To check spots that are occupied within the grid.

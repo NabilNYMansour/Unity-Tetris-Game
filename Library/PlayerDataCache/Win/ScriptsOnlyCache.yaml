@@ -42,9 +42,9 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11292}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 12870}
+      Script: {instanceID: 12868}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -98,7 +98,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 46954d905f72ff2df5d37aea68da1e04
+      Hash: fa203692a9c783c4622f0ba8c4209185
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Grid_
@@ -489,4 +489,5 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/nabil/Desktop/Tetris game/Test Project 3D.exe
+  playerPath: C:/Users/nabil/Desktop/Projects/Unity Projects/Tetris/Builds/Alpha
+    Build/Test Project 3D.exe
